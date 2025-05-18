@@ -6,9 +6,9 @@ This project allows you to control presentation slides using hand gestures throu
 
 1. Create and activate virtual environment:
 ```bash
-python -m venv venv
-source venv/bin/activate  # For Linux/Mac
-venv\Scripts\activate     # For Windows
+python -m venv lib
+source lib/bin/activate  # For Linux/Mac
+lib\Scripts\activate     # For Windows
 ```
 
 2. Install requirements:
