@@ -2,6 +2,9 @@
 
 This project allows you to control presentation slides using hand gestures through your camera.
 
+## Hand Landmarks
+![Hand Landmarks](https://ai.google.dev/static/edge/mediapipe/images/solutions/hand-landmarks.png)
+
 ## Setup Instructions
 
 1. Create and activate virtual environment:
