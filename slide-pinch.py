@@ -56,7 +56,6 @@ while True:
         
         # Ambil posisi jari jempol (4) 
         x1, y1 = lmList[4][1], lmList[4][2]
-        cx, cy = (x1 + startX) // 2, (y1 + startY) // 2
 
         # Start and End Presentation
         startX, startY = lmList[20][1], lmList[20][2]
@@ -67,6 +66,9 @@ while True:
         # Swipe Left
         leftX, leftY = lmList[12][1], lmList[12][2]
         
+        # Ambil posisi tengah telapak tangan (landmark 0) 
+        cx, cy = (x1 + startX) // 2, (y1 + startY) // 2
+
         # Gambar lingkaran di ujung jari untuk visualisasi
         cv2.circle(img, (x1, y1), 10, (255, 0, 255), cv2.FILLED)
 
