@@ -82,6 +82,9 @@ while True:
             if not presentation_active:
                 print("Starting Presentation")
                 pyautogui.press('f5')  # Memulai slideshow
+
+                # Ini untuk presentasi di browser
+                # pyautogui.hotkey('ctrl', 'f5') 
                 presentation_active = True
                 action_status = "Starting Presentation"
 
@@ -96,7 +99,7 @@ while True:
         if presentation_active:
             if lengthRight < pinch_threshold and action_ready:
                     print("Next Slide")
-                    pyautogui.press('right')  # perintah untuk tekan tombol kanan jadi kayk di klik kanan biar nge slide
+                    pyautogui.press('right')  #
                     action_status = "Next Slide"
                     last_action_time = current_time
                     action_ready = False
