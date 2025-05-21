@@ -1,8 +1,7 @@
 """
 Hand Tracking Module
 By: Murtaza Hassan
-Youtube: http://www.youtube.com/c/MurtazasWorkshopRoboticsandAI
-Website: https://www.computervision.zone
+Modified by: Dhindonk
 """
 
 import cv2
