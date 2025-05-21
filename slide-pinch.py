@@ -1,19 +1,18 @@
 import cv2
 import time
-import numpy as np
 import ModuleHandTracking as htm
 import math
-import pyautogui  # keyboard
+import pyautogui  
 
 ################################
 wCam, hCam = 1024, 768
 ################################
 
-cooldown_time = 1  # Waktu cooldown dalam detik untuk mencegah multiple swipes
+cooldown_time = 1 # detik
 last_action_time = 0
-action_ready = True  # Flag untuk melacak apakah action dapat dideteksi
+action_ready = True  # 
 
-# Inisialisasi kamera
+# Inisialisasi 
 cap = cv2.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
@@ -22,13 +21,12 @@ pTime = 0
 # Inisialisasi hand detector
 detector = htm.handDetector(detectionCon=0.7)
 
-# Status presentasi
+# 
 presentation_active = False
 
 # Konfigurasi tampilan
 action_status = "None"
 
-# Threshold untuk gesture pinch (misal jarak antara jempol dan telunjuk)
 pinch_threshold = 40  # Jarak dalam pixel
 
 while True:
@@ -54,23 +52,16 @@ while True:
 
     if len(lmList) > 8: 
         
-        # Ambil posisi jari jempol (4) 
-        x1, y1 = lmList[4][1], lmList[4][2]
-
-        # Start and End Presentation
-        startX, startY = lmList[20][1], lmList[20][2]
-
-        # Swipe Right
-        rightX, rightY = lmList[8][1], lmList[8][2]
-
-        # Swipe Left
-        leftX, leftY = lmList[12][1], lmList[12][2]
+        x1, y1 = lmList[4][1], lmList[4][2] # jempol
+        startX, startY = lmList[20][1], lmList[20][2] # kelingking
+        rightX, rightY = lmList[8][1], lmList[8][2] # telunjuk
+        leftX, leftY = lmList[12][1], lmList[12][2] # jari tengah
         
         # Ambil posisi tengah telapak tangan (landmark 0) 
         cx, cy = (x1 + startX) // 2, (y1 + startY) // 2
 
         # Gambar lingkaran di ujung jari untuk visualisasi
-        cv2.circle(img, (x1, y1), 10, (255, 0, 255), cv2.FILLED)
+        cv2.circle(img, (x1, y1), 2, (255, 0, 255), cv2.FILLED)
 
         cv2.circle(img, (startX, startY), 10, (255, 0, 255), cv2.FILLED)
 
@@ -82,7 +73,6 @@ while True:
 
         cv2.circle(img, (cx, cy), 10, (255, 0, 255), cv2.FILLED)
         
-        # Hitung jarak antara jempol dan titik yang sudah ditentukan
         lengthStartEnd = math.hypot(startX - x1, startY - y1)
         lengthRight = math.hypot(rightX - x1, rightY - y1)
         lengthLeft = math.hypot(leftX - x1, leftY - y1)
