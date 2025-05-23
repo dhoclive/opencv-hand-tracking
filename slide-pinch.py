@@ -81,10 +81,14 @@ while True:
         if lengthStartEnd < pinch_threshold and action_ready:
             if not presentation_active:
                 print("Starting Presentation")
-                pyautogui.press('f5')  # Memulai slideshow
+                #pyautogui.press('f5')  # Memulai slideshow
 
                 # Ini untuk presentasi di browser
-                # pyautogui.hotkey('ctrl', 'f5') 
+                pyautogui.hotkey('win', 'x') 
+                time.sleep(0.5)
+                pyautogui.press('u')
+                time.sleep(0.5)
+                pyautogui.press('u')
                 presentation_active = True
                 action_status = "Starting Presentation"
 
